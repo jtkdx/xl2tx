@@ -18,4 +18,4 @@ jobs:
 
     - name: Run DataSave_forMac.app
       run: |
-        open DataSave_forMac.app --args "test.xlsm"
+        open DataSave_forMac.app --args "test.xlsx"
