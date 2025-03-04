@@ -14,8 +14,8 @@ jobs:
       run: brew install --cask microsoft-excel
 
     - name: Grant execute permissions for DataSave_forMac.app
-      run: chmod +x ../../DataSave_forMac.app
+      run: chmod +x DataSave_forMac.app
 
     - name: Run DataSave_forMac.app
       run: |
-        open ../../DataSave_forMac.app --args "../../test.xlsm"
+        open DataSave_forMac.app --args "test.xlsm"
