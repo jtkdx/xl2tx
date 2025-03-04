@@ -1,1 +1,21 @@
+name: Run aa.app on Excel
 
+on: [push]
+
+jobs:
+  run-aa-app:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Excel
+      run: brew install --cask microsoft-excel
+
+    - name: Grant execute permissions for DataSave_forMac.app
+      run: chmod +x ../../../DataSave_forMac.app
+
+    - name: Run DataSave_forMac.app
+      run: |
+        open ../../../DataSave_forMac.app --args "../../../test.xlsm"
