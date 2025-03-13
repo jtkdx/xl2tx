@@ -1,0 +1,37 @@
+name: Build JXA Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Create application file
+      run: |
+        # 作業ディレクトリに移動
+        cd $GITHUB_WORKSPACE
+
+        # 必要なディレクトリを作成
+        mkdir -p output
+
+        # osacompile コマンドで .js を .app に変換
+        osacompile -o output/MyApp.app MyScript.js
+
+    - name: Archive application
+      run: |
+        # アプリケーションを ZIP に圧縮
+        cd $GITHUB_WORKSPACE/output
+        zip -r MyApp.zip MyApp.app
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: MyApp
+        path: output/MyApp.zip
