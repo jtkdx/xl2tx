@@ -15,23 +15,23 @@ jobs:
 
     - name: Create application file
       run: |
-        # 作業ディレクトリに移動
-        cd $GITHUB_WORKSPACE
+        # スクリプトの場所に移動
+        cd $GITHUB_WORKSPACE/xl2tx
 
         # 必要なディレクトリを作成
         mkdir -p output
 
-        # osacompile コマンドで .js を .app に変換
-        osacompile -o output/MyApp.app MyScript.js
+        # osacompileコマンドを使用してアプリケーションに変換
+        osacompile -o output/SampleApp.app sample.js
 
     - name: Archive application
       run: |
-        # アプリケーションを ZIP に圧縮
-        cd $GITHUB_WORKSPACE/output
-        zip -r MyApp.zip MyApp.app
+        # アプリケーションをZIP形式に圧縮
+        cd $GITHUB_WORKSPACE/xl2tx/output
+        zip -r SampleApp.zip SampleApp.app
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: MyApp
-        path: output/MyApp.zip
+        name: SampleApp
+        path: xl2tx/output/SampleApp.zip
