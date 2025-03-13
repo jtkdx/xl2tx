@@ -1,4 +1,4 @@
-name: Build JXA Application
+name: Build JXA Application2
 
 on:
   push:
