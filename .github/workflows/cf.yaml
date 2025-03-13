@@ -22,16 +22,16 @@ jobs:
         mkdir -p output
 
         # osacompileコマンドを使用してアプリケーションに変換
-        osacompile -o output/SampleApp.app sample.js
+        osacompile -o output/SampleApp2.app sample2.js
 
     - name: Archive application
       run: |
         # アプリケーションをZIP形式に圧縮
         cd $GITHUB_WORKSPACE/xl2tx/output
-        zip -r SampleApp.zip SampleApp.app
+        zip -r SampleApp2.zip SampleApp2.app
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: SampleApp
-        path: xl2tx/output/SampleApp.zip
+        name: SampleApp2
+        path: xl2tx/output/SampleApp2.zip
