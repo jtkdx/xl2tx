@@ -27,11 +27,11 @@ jobs:
     - name: Archive application
       run: |
         # アプリケーションをZIP形式に圧縮
-        cd $GITHUB_WORKSPACE/xl2tx/output
+        cd $GITHUB_WORKSPACE/output
         zip -r SampleApp2.zip SampleApp2.app
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: SampleApp2
-        path: xl2tx/output/SampleApp2.zip
+        path: $GITHUB_WORKSPACE/output/SampleApp2.zip
