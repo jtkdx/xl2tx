@@ -16,7 +16,7 @@ jobs:
     - name: Create application file
       run: |
         # スクリプトの場所に移動
-        cd $GITHUB_WORKSPACE/xl2tx
+        cd $GITHUB_WORKSPACE/xl2tx/xl2tx
 
         # 必要なディレクトリを作成
         mkdir -p output
